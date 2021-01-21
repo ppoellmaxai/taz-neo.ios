@@ -136,6 +136,7 @@ public class IssueCarousel: UIView {
           self.tapClosure?(currentIndex)
         }
       }
+        moment?.accessibilityLabel = "Ausgabe:\(idx)"
       return moment!
     }
   }
