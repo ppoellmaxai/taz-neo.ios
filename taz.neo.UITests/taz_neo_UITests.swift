@@ -100,7 +100,7 @@ class taz_neo_UITests: XCTestCase {
     }
     
     func testGoldenPath() {
-        let app = XCUIApplication("de.taz.taz.2")
+        let app = XCUIApplication()
         app.launch()
         
         //wait for carousel to appear and be initialized in the right position
@@ -111,7 +111,7 @@ class taz_neo_UITests: XCTestCase {
         waitForExpectations(timeout:30, handler: nil)
     do{
             //  try testAuthentification(app:app)
-            try testCarousel(app:app)
+            //try testCarousel(app:app)
             try testSidebar(app:app)
             try testHomeButton(app:app)
             try testNightmode(app:app)
