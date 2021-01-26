@@ -6,6 +6,6 @@
 //  Copyright © 2021 Norbert Thies. All rights reserved.
 //
 struct TestConstants {
-    static let testmailAdress = "philo.poellmann.xai+19012021@gmail.com"
-    static let testPW = "testPW!!"
+    static let testmailAdress = "xxxxxxx"
+    static let testPW = "xxxxxx"
 }
