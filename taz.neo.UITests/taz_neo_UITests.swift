@@ -7,8 +7,10 @@
 //
 
 import XCTest
-class Authentication_Tests: XCTestCase {
-
+class taz_neo_UITests: XCTestCase {
+    
+    //static var app:XCUIApplication {return XCUIApplication()}
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the  class.
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -36,7 +38,7 @@ class Authentication_Tests: XCTestCase {
         let authenticated = !app.textFields["E-Mail-Adresse oder Abo-ID"].exists
         
         if(!authenticated){
-            do{                
+            do{
                 let elementsQuery = app.scrollViews.otherElements
                 elementsQuery.textFields["E-Mail-Adresse oder Abo-ID"].tap()
                 elementsQuery.textFields["E-Mail-Adresse oder Abo-ID"].typeText(TestConstants.testmailAdress)
@@ -88,7 +90,7 @@ class Authentication_Tests: XCTestCase {
         homeButton.tap()
         XCTAssertTrue(issue.isHittable)
     }
-    
+
     func testNightmode(app: XCUIApplication) throws {
         let issue = app.collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element
         let fontButton = app/*@START_MENU_TOKEN@*/.toolbars["Toolbar"]/*[[".toolbars[\"Symbolleiste\"]",".toolbars[\"Toolbar\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .other).element(boundBy: 1)
@@ -98,10 +100,17 @@ class Authentication_Tests: XCTestCase {
     }
     
     func testGoldenPath() {
-        let app = XCUIApplication()
+        let app = XCUIApplication("de.taz.taz.2")
         app.launch()
-        do{
-            try testAuthentification(app:app)
+        
+        //wait for carousel to appear and be initialized in the right position
+        let predicate = NSPredicate(format: "exists == 1")
+        let query = XCUIApplication().collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element
+        expectation(for:predicate, evaluatedWith: query, handler: nil)
+
+        waitForExpectations(timeout:30, handler: nil)
+    do{
+            //  try testAuthentification(app:app)
             try testCarousel(app:app)
             try testSidebar(app:app)
             try testHomeButton(app:app)
@@ -122,3 +131,4 @@ class Authentication_Tests: XCTestCase {
     }
 
 }
+

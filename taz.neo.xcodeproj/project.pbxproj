@@ -68,8 +68,8 @@
 		AEF2DF2F244709CC00D1482D /* IssueCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2DF2E244709CC00D1482D /* IssueCarousel.swift */; };
 		AEF2DF3324475A6200D1482D /* CarouselController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECAC8FC2440AF1F00D32175 /* CarouselController.swift */; };
 		AEF2DF35244766E400D1482D /* MomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2DF34244766E400D1482D /* MomentView.swift */; };
-		B768BA2625B5BEFB00B10B89 /* die_tageszeitungUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B768BA2525B5BEFB00B10B89 /* die_tageszeitungUITests.swift */; };
-		B777E87325B867B000010787 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777E87225B867AF00010787 /* constants.swift */; };
+		B70A57BB25C06A220071C487 /* taz_neo_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70A57BA25C06A220071C487 /* taz_neo_UITests.swift */; };
+		B70A57C425C06A4E0071C487 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777E87225B867AF00010787 /* constants.swift */; };
 		C794F23524FED184007168AC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C794F23424FED184007168AC /* Helper.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +88,7 @@
 			remoteGlobalIDString = AE71230223197CB800B715A8;
 			remoteInfo = Test;
 		};
-		B768BA2825B5BEFB00B10B89 /* PBXContainerItemProxy */ = {
+		B70A57BD25C06A220071C487 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AEBAF55C219ACD1900566205 /* Project object */;
 			proxyType = 1;
@@ -170,9 +170,9 @@
 		AEE3D4E9247D31FA00BEDEA3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		AEF2DF2E244709CC00D1482D /* IssueCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCarousel.swift; sourceTree = "<group>"; };
 		AEF2DF34244766E400D1482D /* MomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentView.swift; sourceTree = "<group>"; };
-		B768BA2325B5BEFB00B10B89 /* die tageszeitungUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "die tageszeitungUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B768BA2525B5BEFB00B10B89 /* die_tageszeitungUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = die_tageszeitungUITests.swift; sourceTree = "<group>"; };
-		B768BA2725B5BEFB00B10B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B70A57B825C06A220071C487 /* taz.neo.UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = taz.neo.UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70A57BA25C06A220071C487 /* taz_neo_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taz_neo_UITests.swift; sourceTree = "<group>"; };
+		B70A57BC25C06A220071C487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B777E87225B867AF00010787 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		C794F23424FED184007168AC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,7 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B768BA2025B5BEFB00B10B89 /* Frameworks */ = {
+		B70A57B525C06A220071C487 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -324,7 +324,7 @@
 				AEE3D4E6247D316D00BEDEA3 /* README.md */,
 				AE9851272320F83800EAC9D8 /* NorthLib.xcodeproj */,
 				AEBAF566219ACD1900566205 /* taz.neo */,
-				B768BA2425B5BEFB00B10B89 /* die tageszeitungUITests */,
+				B70A57B925C06A220071C487 /* taz.neo.UITests */,
 				AEBAF565219ACD1900566205 /* Products */,
 				AE3D47D623030482002FF0A2 /* Frameworks */,
 			);
@@ -334,8 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				AEBAF564219ACD1900566205 /* die tageszeitung.app */,
-				AE10898A25768EE1000E7BF1 /* taz.beta.app */,
-				B768BA2325B5BEFB00B10B89 /* die tageszeitungUITests.xctest */,
+				B70A57B825C06A220071C487 /* taz.neo.UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -397,14 +396,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		B768BA2425B5BEFB00B10B89 /* die tageszeitungUITests */ = {
+		B70A57B925C06A220071C487 /* taz.neo.UITests */ = {
 			isa = PBXGroup;
 			children = (
-				B768BA2525B5BEFB00B10B89 /* die_tageszeitungUITests.swift */,
-				B768BA2725B5BEFB00B10B89 /* Info.plist */,
 				B777E87225B867AF00010787 /* constants.swift */,
+				B70A57BA25C06A220071C487 /* taz_neo_UITests.swift */,
+				B70A57BC25C06A220071C487 /* Info.plist */,
 			);
-			path = "die tageszeitungUITests";
+			path = taz.neo.UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,22 +427,22 @@
 			productReference = AEBAF564219ACD1900566205 /* die tageszeitung.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B768BA2225B5BEFB00B10B89 /* die tageszeitungUITests */ = {
+		B70A57B725C06A220071C487 /* taz.neo.UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B768BA2E25B5BEFB00B10B89 /* Build configuration list for PBXNativeTarget "die tageszeitungUITests" */;
+			buildConfigurationList = B70A57BF25C06A220071C487 /* Build configuration list for PBXNativeTarget "taz.neo.UITests" */;
 			buildPhases = (
-				B768BA1F25B5BEFB00B10B89 /* Sources */,
-				B768BA2025B5BEFB00B10B89 /* Frameworks */,
-				B768BA2125B5BEFB00B10B89 /* Resources */,
+				B70A57B425C06A220071C487 /* Sources */,
+				B70A57B525C06A220071C487 /* Frameworks */,
+				B70A57B625C06A220071C487 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B768BA2925B5BEFB00B10B89 /* PBXTargetDependency */,
+				B70A57BE25C06A220071C487 /* PBXTargetDependency */,
 			);
-			name = "die tageszeitungUITests";
-			productName = "die tageszeitungUITests";
-			productReference = B768BA2325B5BEFB00B10B89 /* die tageszeitungUITests.xctest */;
+			name = taz.neo.UITests;
+			productName = taz.neo.UITests;
+			productReference = B70A57B825C06A220071C487 /* taz.neo.UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -460,7 +459,7 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
 					};
-					B768BA2225B5BEFB00B10B89 = {
+					B70A57B725C06A220071C487 = {
 						CreatedOnToolsVersion = 12.3;
 						TestTargetID = AEBAF563219ACD1900566205;
 					};
@@ -487,8 +486,7 @@
 			projectRoot = "";
 			targets = (
 				AEBAF563219ACD1900566205 /* taz.neo */,
-				AE10894225768EE1000E7BF1 /* taz.beta */,
-				B768BA2225B5BEFB00B10B89 /* die tageszeitungUITests */,
+				B70A57B725C06A220071C487 /* taz.neo.UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -529,7 +527,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B768BA2125B5BEFB00B10B89 /* Resources */ = {
+		B70A57B625C06A220071C487 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -620,22 +618,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B768BA1F25B5BEFB00B10B89 /* Sources */ = {
+		B70A57B425C06A220071C487 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B768BA2625B5BEFB00B10B89 /* die_tageszeitungUITests.swift in Sources */,
-				B777E87325B867B000010787 /* constants.swift in Sources */,
+				B70A57BB25C06A220071C487 /* taz_neo_UITests.swift in Sources */,
+				B70A57C425C06A4E0071C487 /* constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B768BA2925B5BEFB00B10B89 /* PBXTargetDependency */ = {
+		B70A57BE25C06A220071C487 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AEBAF563219ACD1900566205 /* taz.neo */;
-			targetProxy = B768BA2825B5BEFB00B10B89 /* PBXContainerItemProxy */;
+			targetProxy = B70A57BD25C06A220071C487 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -840,19 +838,19 @@
 			};
 			name = Release;
 		};
-		B768BA2A25B5BEFB00B10B89 /* Debug */ = {
+		B70A57C025C06A220071C487 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NSLNJ82AQ6;
-				INFOPLIST_FILE = "die tageszeitungUITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_FILE = taz.neo.UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xailabs.com.die-tageszeitungUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xailabs.com.taz-neo-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -860,19 +858,19 @@
 			};
 			name = Debug;
 		};
-		B768BA2B25B5BEFB00B10B89 /* Release */ = {
+		B70A57C125C06A220071C487 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NSLNJ82AQ6;
-				INFOPLIST_FILE = "die tageszeitungUITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_FILE = taz.neo.UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xailabs.com.die-tageszeitungUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xailabs.com.taz-neo-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -901,11 +899,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B768BA2E25B5BEFB00B10B89 /* Build configuration list for PBXNativeTarget "die tageszeitungUITests" */ = {
+		B70A57BF25C06A220071C487 /* Build configuration list for PBXNativeTarget "taz.neo.UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B768BA2A25B5BEFB00B10B89 /* Debug */,
-				B768BA2B25B5BEFB00B10B89 /* Release */,
+				B70A57C025C06A220071C487 /* Debug */,
+				B70A57C125C06A220071C487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
