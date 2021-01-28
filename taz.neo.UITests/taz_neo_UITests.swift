@@ -8,9 +8,7 @@
 
 import XCTest
 class taz_neo_UITests: XCTestCase {
-    
-    //static var app:XCUIApplication {return XCUIApplication()}
-    
+        
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the  class.
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -23,114 +21,81 @@ class taz_neo_UITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testHelpPopUp(app: XCUIApplication) throws {
-        // Testing Help functionality in login window
-        let app = XCUIApplication()
-        app.launch()
-        let elementsQuery = app.scrollViews.otherElements
-        elementsQuery/*@START_MENU_TOKEN@*/.staticTexts["Hilfe"]/*[[".buttons[\"Hilfe\"].staticTexts[\"Hilfe\"]",".staticTexts[\"Hilfe\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.alerts["Hilfe"].scrollViews.otherElements.buttons["OK"].tap()
-    }
-    
-    func testAuthentification(app: XCUIApplication) throws {
-        // Authentification in case user is not authenticated
-
-        let authenticated = !app.textFields["E-Mail-Adresse oder Abo-ID"].exists
+    func _testAuthentification() throws {
+        let authenticated = !AppElements.eMailTextField.exists
         
         if(!authenticated){
             do{
-                let elementsQuery = app.scrollViews.otherElements
-                elementsQuery.textFields["E-Mail-Adresse oder Abo-ID"].tap()
-                elementsQuery.textFields["E-Mail-Adresse oder Abo-ID"].typeText(TestConstants.testmailAdress)
-                elementsQuery.secureTextFields["Passwort"].tap()
-                elementsQuery.secureTextFields["Passwort"].typeText(TestConstants.testPW)
-
-                elementsQuery/*@START_MENU_TOKEN@*/.staticTexts["Anmelden"]/*[[".buttons[\"Anmelden\"].staticTexts[\"Anmelden\"]",".staticTexts[\"Anmelden\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+                AppElements.eMailTextField.tap()
+                AppElements.eMailTextField.typeText(TestConstants.testmailAdress)
+                AppElements.passwordTextField.tap()
+                AppElements.passwordTextField.typeText(TestConstants.testPW)
+                AppElements.signInBtn.tap()
             }
         }
-        XCTAssertFalse(app.textFields["E-Mail-Adresse oder Abo-ID"].exists)
+        XCTAssertFalse(AppElements.eMailTextField.exists)
     }
     
-    func testCarousel(app: XCUIApplication) throws {
+    func _testCarousel() throws {
         //test if regular swipe increases issue index by 2
+        XCTAssertTrue(AppElements.firstIssue.isHittable)
+        AppElements.firstIssue.swipeLeft()
+        XCTAssertFalse(AppElements.firstIssue.isHittable)
+        XCTAssertTrue(AppElements.thirdIssue.isHittable)
         
-        let firstIssue = app.collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element
-        XCTAssertTrue(firstIssue.isHittable)
-        
-        firstIssue.swipeLeft()
-        XCTAssertFalse(firstIssue.isHittable)
-        
-        let thirdIssue = app.collectionViews.otherElements["Ausgabe:2"].children(matching: .image).element
-        XCTAssertTrue(thirdIssue.isHittable)
-        
-        thirdIssue.swipeRight()
-        XCTAssertTrue(firstIssue.isHittable)
+        AppElements.thirdIssue.swipeRight()
+        XCTAssertTrue(AppElements.firstIssue.isHittable)
     }
     
-    func testSidebar(app: XCUIApplication) throws {
-        app.collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element.tap()
+    func _testSidebar() throws {
+        AppElements.firstIssue.tap()
         
         //needs to wait for the sidebar animation to have taken place
         sleep(10)
         
-        //TODO will fail for weekend edition, think of sth better and more stable
-        let pages = ["titel", "der tag", "Impressum"]
+        //TODO will possibly fail for weekend edition, think of sth better and more stable
+        let pages = ["Impressum", "titel"]
         for page in pages {
-            app.buttons["logo"].tap()
-            app.tables.staticTexts[page].tap()
+            AppElements.logoBtn.tap()
+            AppElements.sideBarTbl.staticTexts[page].tap()
         }
-        let homeButton = app.toolbars["Toolbar"].children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element(boundBy: 2)
-        homeButton.tap()
+        AppElements.homeBtn.tap()
     }
     
-    func testHomeButton(app: XCUIApplication) throws {
-        let issue = app.collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element
-        let homeButton = app/*@START_MENU_TOKEN@*/.toolbars["Toolbar"]/*[[".toolbars[\"Symbolleiste\"]",".toolbars[\"Toolbar\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element(boundBy: 2)
-        issue.tap()
-        homeButton.tap()
-        XCTAssertTrue(issue.isHittable)
+    func _testHomeButton() throws {
+        AppElements.firstIssue.tap()
+        XCTAssertFalse(AppElements.firstIssue.isHittable)
+        
+        AppElements.homeBtn.tap()
+        XCTAssertTrue(AppElements.firstIssue.isHittable)
     }
 
-    func testNightmode(app: XCUIApplication) throws {
-        let issue = app.collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element
-        let fontButton = app/*@START_MENU_TOKEN@*/.toolbars["Toolbar"]/*[[".toolbars[\"Symbolleiste\"]",".toolbars[\"Toolbar\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .other).element(boundBy: 1)
-        issue.tap()
-        fontButton.tap()
-        app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 0).tap()
+    func _testFontButton() throws {
+        AppElements.firstIssue.tap()
+        AppElements.fontBtn.tap()
+        //some assert
     }
     
     func testGoldenPath() {
-        let app = XCUIApplication()
-        app.launch()
-        
-        //accept GDPR agreement and skip tour
-        let webViewsQuery = app.webViews.webViews.webViews
-        let gdpr_header = webViewsQuery.otherElements["Datenschutzerklärung"]
-        print("++++GDPR HEADER EXISTS", gdpr_header.exists)
-        sleep(20)
-        print("++++GDPR HEADER EXISTS", gdpr_header.exists)
-        if(gdpr_header.exists){
+        let app = XCUIApplication().launch()
+        let foundElement = waitForEitherElementToExist(elementA: AppElements.gdprHeader, elementB: AppElements.firstIssue, timeout: 30)
+
+        if(foundElement == AppElements.gdprHeader){
             do{
-                //TODO test with increased velocity
-                gdpr_header.swipeUp()
-                gdpr_header.swipeUp()
-                app.staticTexts["Akzeptieren"].tap()
-                app.otherElements["webViewXBtn"].tap()
+                AppElements.gdprHeader.swipeUp()
+                AppElements.gdprHeader.swipeUp()
+                AppElements.acceptGdprBtn.tap()
+                AppElements.welcomeXBtn.tap()
+                waitForElementToExist(test: self, element: AppElements.firstIssue)
             }
         }
-        
-        //wait for carousel to appear and be initialized in the right position
-        let predicate = NSPredicate(format: "exists == 1")
-        let query = XCUIApplication().collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element
-        expectation(for:predicate, evaluatedWith: query, handler: nil)
-
-        waitForExpectations(timeout:30, handler: nil)
-    do{
-            try testCarousel(app:app)
-            try testSidebar(app:app)
-            try testHomeButton(app:app)
-            try testNightmode(app:app)
-            try testAuthentification(app:app)
+    
+        do{
+            try _testCarousel()
+            try _testSidebar()
+            try _testHomeButton()
+            try _testFontButton()
+            try _testAuthentification()
         }
         catch let error {
             print(error.localizedDescription)

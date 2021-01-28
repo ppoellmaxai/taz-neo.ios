@@ -70,6 +70,7 @@
 		AEF2DF35244766E400D1482D /* MomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2DF34244766E400D1482D /* MomentView.swift */; };
 		B70A57BB25C06A220071C487 /* taz_neo_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70A57BA25C06A220071C487 /* taz_neo_UITests.swift */; };
 		B70A57C425C06A4E0071C487 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B777E87225B867AF00010787 /* constants.swift */; };
+		B78DA92125C2C69D00998C48 /* helperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78DA92025C2C69D00998C48 /* helperFunctions.swift */; };
 		C794F23524FED184007168AC /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C794F23424FED184007168AC /* Helper.swift */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +175,7 @@
 		B70A57BA25C06A220071C487 /* taz_neo_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taz_neo_UITests.swift; sourceTree = "<group>"; };
 		B70A57BC25C06A220071C487 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B777E87225B867AF00010787 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		B78DA92025C2C69D00998C48 /* helperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperFunctions.swift; sourceTree = "<group>"; };
 		C794F23424FED184007168AC /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -402,6 +404,7 @@
 				B777E87225B867AF00010787 /* constants.swift */,
 				B70A57BA25C06A220071C487 /* taz_neo_UITests.swift */,
 				B70A57BC25C06A220071C487 /* Info.plist */,
+				B78DA92025C2C69D00998C48 /* helperFunctions.swift */,
 			);
 			path = taz.neo.UITests;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 			files = (
 				B70A57BB25C06A220071C487 /* taz_neo_UITests.swift in Sources */,
 				B70A57C425C06A4E0071C487 /* constants.swift in Sources */,
+				B78DA92125C2C69D00998C48 /* helperFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
