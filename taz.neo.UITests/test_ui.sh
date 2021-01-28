@@ -16,13 +16,14 @@ device_name="$( jq -r ".name" $config_file )"
 
 if [ "$platform" = "iOS Simulator" ]
 then
+    xcrun simctl shutdown all && xcrun simctl erase all
     xcodebuild \
         -project ../taz.neo.xcodeproj/ \
         -scheme "taz.neo" \
         -sdk iphonesimulator \
         -destination "platform=iOS Simulator,name=${device_name}"\
         clean test
-elif [ "$platform" = 'iOS' ] 
+elif [ "$platform" = 'iOS' ]
 then
     xcodebuild \
             -project ../taz.neo.xcodeproj/ \

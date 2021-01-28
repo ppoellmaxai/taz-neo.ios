@@ -69,15 +69,15 @@ class taz_neo_UITests: XCTestCase {
     
     func testSidebar(app: XCUIApplication) throws {
         app.collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element.tap()
-
-        let logoButton = app.buttons["logo"]
-        let tablesQuery = app.tables
+        
+        //needs to wait for the sidebar animation to have taken place
+        sleep(10)
         
         //TODO will fail for weekend edition, think of sth better and more stable
         let pages = ["titel", "der tag", "Impressum"]
         for page in pages {
-            logoButton.tap()
-            tablesQuery.staticTexts[page].tap()
+            app.buttons["logo"].tap()
+            app.tables.staticTexts[page].tap()
         }
         let homeButton = app.toolbars["Toolbar"].children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element(boundBy: 2)
         homeButton.tap()
@@ -103,6 +103,22 @@ class taz_neo_UITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
+        //accept GDPR agreement and skip tour
+        let webViewsQuery = app.webViews.webViews.webViews
+        let gdpr_header = webViewsQuery.otherElements["Datenschutzerklärung"]
+        print("++++GDPR HEADER EXISTS", gdpr_header.exists)
+        sleep(20)
+        print("++++GDPR HEADER EXISTS", gdpr_header.exists)
+        if(gdpr_header.exists){
+            do{
+                //TODO test with increased velocity
+                gdpr_header.swipeUp()
+                gdpr_header.swipeUp()
+                app.staticTexts["Akzeptieren"].tap()
+                app.otherElements["webViewXBtn"].tap()
+            }
+        }
+        
         //wait for carousel to appear and be initialized in the right position
         let predicate = NSPredicate(format: "exists == 1")
         let query = XCUIApplication().collectionViews.otherElements["Ausgabe:0"].children(matching: .image).element
@@ -110,11 +126,11 @@ class taz_neo_UITests: XCTestCase {
 
         waitForExpectations(timeout:30, handler: nil)
     do{
-            //  try testAuthentification(app:app)
-            //try testCarousel(app:app)
+            try testCarousel(app:app)
             try testSidebar(app:app)
             try testHomeButton(app:app)
             try testNightmode(app:app)
+            try testAuthentification(app:app)
         }
         catch let error {
             print(error.localizedDescription)
@@ -131,4 +147,3 @@ class taz_neo_UITests: XCTestCase {
     }
 
 }
-
