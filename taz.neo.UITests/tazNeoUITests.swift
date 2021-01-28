@@ -12,7 +12,7 @@ class taz_neo_UITests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the  class.
         // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = true
+        continueAfterFailure = false
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -77,7 +77,8 @@ class taz_neo_UITests: XCTestCase {
     }
     
     func testGoldenPath() {
-        let app = XCUIApplication().launch()
+        XCUIApplication().launch()
+        
         let foundElement = waitForEitherElementToExist(elementA: AppElements.gdprHeader, elementB: AppElements.firstIssue, timeout: 30)
 
         if(foundElement == AppElements.gdprHeader){
@@ -94,8 +95,9 @@ class taz_neo_UITests: XCTestCase {
             try _testCarousel()
             try _testSidebar()
             try _testHomeButton()
-            try _testFontButton()
-            try _testAuthentification()
+            //try _testFontButton()
+            //try _testAuthentification()
+
         }
         catch let error {
             print(error.localizedDescription)

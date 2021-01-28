@@ -22,6 +22,7 @@ struct AppElements {
     static let sideBarTbl = XCUIApplication().tables
     
     //Toolbar
+    //TODO Setting Accessibility IDs for toolbar buttons
     static let fontBtn = XCUIApplication()/*@START_MENU_TOKEN@*/.toolbars["Toolbar"]/*[[".toolbars[\"Symbolleiste\"]",".toolbars[\"Toolbar\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .other).element(boundBy: 1)
     static let homeBtn = XCUIApplication().toolbars["Toolbar"].children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element(boundBy: 2)
 
