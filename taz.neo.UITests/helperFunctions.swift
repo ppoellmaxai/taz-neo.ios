@@ -7,6 +7,8 @@
 //
 import XCTest
 
+
+/// Collection of paths to XCUIElements that are queried during test time
 struct AppElements {
     //Privacy Declaration
     static let gdprHeader = XCUIApplication().webViews.webViews.webViews.otherElements["Datenschutzerklärung"]
@@ -33,6 +35,12 @@ struct AppElements {
 }
 
 
+/// A function that takes two XCUIElements and returns the one that exists first
+/// - Parameters:
+///   - elementA: First XCUIElement that is waited for to exist
+///   - elementB: Second XCUIElement that is waited for to exist
+///   - timeout: Number of seconds this function maximally waits for either of the XCUIElements to exist
+/// - Returns: Whichever XCUIElement exists first. If neither of them appear returns nil
 func waitForEitherElementToExist(elementA: XCUIElement, elementB: XCUIElement, timeout: Double) -> XCUIElement? {
     let startTime = NSDate.timeIntervalSinceReferenceDate
     while (!elementA.exists && !elementB.exists) { // while neither element exists
@@ -48,8 +56,21 @@ func waitForEitherElementToExist(elementA: XCUIElement, elementB: XCUIElement, t
     return nil
 }
 
-func waitForElementToExist(test: XCTestCase, element:XCUIElement){
-    let predicate = NSPredicate(format: "exists == 1")
-    test.expectation(for:predicate, evaluatedWith: element, handler: nil)
-    test.waitForExpectations(timeout:30, handler: nil)
+
+/// A function that takes a XCUIElement and returns itself as soon as that XCUIElement exists
+/// - Parameters:
+///   - element: XCUIElement that is waited for to exist
+///   - timeout: Number of seconds this function maximally waits the XCUIElement to exist
+/// - Returns: XCUIElement once it exists. Else returns nil.
+@discardableResult func waitForElementToExist(element:XCUIElement, timeout:Double)-> XCUIElement?{
+    let startTime = NSDate.timeIntervalSinceReferenceDate
+    while (!element.exists) { // while element does not exist
+        if (NSDate.timeIntervalSinceReferenceDate - startTime > timeout) {
+            XCTFail("Timed out waiting for element to exist.")
+            break
+        }
+        sleep(1)
+    }
+    if element.exists { return element }
+    return nil
 }

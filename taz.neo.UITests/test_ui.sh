@@ -1,6 +1,6 @@
 #!/bin/bash
 
-jq necessary to read config
+#jq necessary to read config
 if ! jq --version &> /dev/null
 then
     if [[ "$OSTYPE" == "darwin"* ]]; then brew install jq
