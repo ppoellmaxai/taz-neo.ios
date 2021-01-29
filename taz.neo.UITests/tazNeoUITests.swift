@@ -75,7 +75,6 @@ class taz_neo_UITests: XCTestCase {
         //needs to wait for the sidebar animation to have taken place
         sleep(10)
         
-        //TODO will possibly fail for weekend edition, think of sth better and more stable
         let pages = ["Impressum", "titel"]
         for page in pages {
             AppElements.logoBtn.tap()
@@ -89,6 +88,8 @@ class taz_neo_UITests: XCTestCase {
     /// - Throws: <#description#>
     func test003HomeButton() throws {
         AppElements.firstIssue.tap()
+        waitForElementToExist(element: AppElements.logoBtn, timeout:120)
+        
         XCTAssertFalse(AppElements.firstIssue.isHittable)
         
         AppElements.homeBtn.tap()
